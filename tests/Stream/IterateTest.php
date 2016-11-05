@@ -26,4 +26,15 @@ class IterateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('A*', $stream->getCurrent());
         $this->assertEquals('A**', $stream->getCurrent());
     }
+
+    public function testNext()
+    {
+        $stream = new Iterate(10, function ($current) {
+            return $current + 2;
+        });
+
+        $this->assertEquals(10, $stream->getCurrent());
+        $stream->next();
+        $this->assertEquals(14, $stream->getCurrent());
+    }
 }
