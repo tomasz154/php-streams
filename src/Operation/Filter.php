@@ -17,20 +17,15 @@ class Filter implements StreamInterface
 
     public function getCurrent()
     {
-        return $this->filterCurrent();
-    }
-
-    public function next()
-    {
-        $this->filterCurrent();
-    }
-
-    private function filterCurrent()
-    {
         do {
             $current = $this->stream->getCurrent();
         } while (!call_user_func($this->callable, $current));
 
         return $current;
+    }
+
+    public function next()
+    {
+        $this->getCurrent();
     }
 }
