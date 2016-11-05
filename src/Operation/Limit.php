@@ -29,5 +29,6 @@ class Limit implements StreamInterface
     public function next()
     {
         $this->count++;
+        $this->stream->next();
     }
 }

@@ -24,6 +24,21 @@ class FilterTest extends \PHPUnit_Framework_TestCase
         $filter->getCurrent();
     }
 
+    public function testNext()
+    {
+        $stream = new ArrayStream([1, 4, 8, 10]);
+        $filter = new Filter($stream, function ($item) {
+            return $item % 4 == 0;
+        });
+
+        $filter->next();
+
+        $this->assertEquals(8, $filter->getCurrent());
+
+        $this->expectException(EndOfStream::class);
+        $filter->getCurrent();
+    }
+
     public function testEmptyStream()
     {
         $stream = new ArrayStream([]);
