@@ -27,9 +27,8 @@ class Reduce implements TerminalOperationInterface
             try {
                 $current = call_user_func($this->reduce, $current, $this->stream->getCurrent());
             } catch (EndOfStream $e) {
-                break;
+                return $current;
             }
         }
-        return $current;
     }
 }
