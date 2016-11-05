@@ -25,4 +25,9 @@ class Limit implements StreamInterface
             throw new EndOfStream();
         }
     }
+
+    public function next()
+    {
+        $this->count++;
+    }
 }

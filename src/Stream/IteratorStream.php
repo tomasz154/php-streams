@@ -19,10 +19,15 @@ class IteratorStream implements StreamInterface
     {
         if ($this->iterator->valid()) {
             $current = $this->iterator->current();
-            $this->iterator->next();
+            $this->next();
             return $current;
         } else {
             throw new EndOfStream();
         }
+    }
+
+    public function next()
+    {
+        $this->iterator->next();
     }
 }

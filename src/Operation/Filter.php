@@ -23,4 +23,9 @@ class Filter implements StreamInterface
 
         return $current;
     }
+
+    public function next()
+    {
+        // not needed
+    }
 }

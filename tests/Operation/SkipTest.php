@@ -7,6 +7,7 @@ namespace Operation;
 use T2\Streams\Exception\EndOfStream;
 use T2\Streams\Operation\Skip;
 use T2\Streams\Stream\ArrayStream;
+use T2\Streams\Stream\Iterate;
 
 class SkipTest extends \PHPUnit_Framework_TestCase
 {
@@ -62,5 +63,20 @@ class SkipTest extends \PHPUnit_Framework_TestCase
 
         $this->expectException(EndOfStream::class);
         $skip->getCurrent();
+    }
+
+    public function testItsLazy()
+    {
+        $test = $this;
+        $stream = new Iterate(1, function ($current) use ($test) {
+            if ($current < 3) {
+                $test->fail();
+            }
+
+            return $current + 1;
+        });
+
+        $skip = new Skip($stream, 2);
+        $this->assertEquals(3, $skip->getCurrent());
     }
 }

@@ -19,4 +19,9 @@ class Iterate implements StreamInterface
         $this->current = call_user_func($this->call, $this->current);
         return $current;
     }
+
+    public function next()
+    {
+        $this->current++;
+    }
 }

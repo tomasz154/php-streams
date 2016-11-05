@@ -19,4 +19,9 @@ class Map implements StreamInterface
     {
         return call_user_func($this->callable, $this->stream->getCurrent());
     }
+
+    public function next()
+    {
+        return $this->stream->next();
+    }
 }

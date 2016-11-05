@@ -20,11 +20,15 @@ class Skip implements StreamInterface
 
     public function getCurrent()
     {
-        // TODO: make it lazy
         for (; $this->current < $this->skip; $this->current++) {
-            $this->stream->getCurrent();
+            $this->next();
         }
 
         return $this->stream->getCurrent();
+    }
+
+    public function next()
+    {
+        return $this->stream->next();
     }
 }
