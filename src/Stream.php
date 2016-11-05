@@ -20,7 +20,7 @@ class Stream
 {
     private $stream;
 
-    public function __construct(StreamInterface $stream)
+    private function __construct(StreamInterface $stream)
     {
         $this->stream = $stream;
     }
