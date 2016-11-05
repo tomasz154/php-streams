@@ -12,27 +12,13 @@ class FilterTest extends \PHPUnit_Framework_TestCase
 {
     public function testItsWorking()
     {
-        $stream = new ArrayStream([1, 4, 8, 10]);
+        $stream = new ArrayStream([1, 4, 4, 8, 10]);
         $filter = new Filter($stream, function ($item) {
             return $item % 4 == 0;
         });
 
         $this->assertEquals(4, $filter->getCurrent());
-        $this->assertEquals(8, $filter->getCurrent());
-
-        $this->expectException(EndOfStream::class);
-        $filter->getCurrent();
-    }
-
-    public function testNext()
-    {
-        $stream = new ArrayStream([1, 4, 8, 10]);
-        $filter = new Filter($stream, function ($item) {
-            return $item % 4 == 0;
-        });
-
         $filter->next();
-
         $this->assertEquals(8, $filter->getCurrent());
 
         $this->expectException(EndOfStream::class);

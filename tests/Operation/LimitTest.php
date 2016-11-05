@@ -27,17 +27,6 @@ class LimitTest extends \PHPUnit_Framework_TestCase
 
     public function testStrings()
     {
-        $stream = new ArrayStream(['aa', 'bb']);
-        $limit = new Limit($stream, 1);
-
-        $this->assertEquals('aa', $limit->getCurrent());
-
-        $this->expectException(EndOfStream::class);
-        $limit->getCurrent();
-    }
-
-    public function testNext()
-    {
         $stream = new ArrayStream(['aa', 'bb', 'cc']);
         $limit = new Limit($stream, 2);
         $limit->next();
