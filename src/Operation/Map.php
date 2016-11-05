@@ -24,4 +24,9 @@ class Map implements StreamInterface
     {
         return $this->stream->next();
     }
+
+    public function isBounded()
+    {
+        return $this->stream->isBounded();
+    }
 }

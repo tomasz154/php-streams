@@ -8,4 +8,5 @@ interface StreamInterface
 {
     public function getCurrent();
     public function next();
+    public function isBounded();
 }

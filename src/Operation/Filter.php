@@ -28,4 +28,9 @@ class Filter implements StreamInterface
     {
         $this->getCurrent();
     }
+
+    public function isBounded()
+    {
+        return $this->stream->isBounded();
+    }
 }

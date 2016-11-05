@@ -30,4 +30,9 @@ class IteratorStream implements StreamInterface
     {
         $this->iterator->next();
     }
+
+    public function isBounded()
+    {
+        return false;
+    }
 }

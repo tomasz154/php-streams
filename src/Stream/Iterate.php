@@ -24,4 +24,9 @@ class Iterate implements StreamInterface
     {
         $this->getCurrent();
     }
+
+    public function isBounded()
+    {
+        return false;
+    }
 }

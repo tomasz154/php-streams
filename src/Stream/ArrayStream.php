@@ -8,4 +8,9 @@ class ArrayStream extends IteratorStream
     {
         parent::__construct(new \ArrayIterator($array));
     }
+
+    public function isBounded()
+    {
+        return true;
+    }
 }

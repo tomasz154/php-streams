@@ -33,6 +33,7 @@ class SumTest extends \PHPUnit_Framework_TestCase
         $stream->getCurrent()->will(function () use ($test) {
             $test->fail('getCurrent was called');
         });
+        $stream->isBounded()->willReturn(true);
         $op = new Sum($stream->reveal());
     }
 }

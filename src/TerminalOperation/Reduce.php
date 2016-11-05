@@ -5,6 +5,7 @@ namespace T2\Streams\TerminalOperation;
 
 
 use T2\Streams\Exception\EndOfStream;
+use T2\Streams\Exception\InvalidArgumentException;
 use T2\Streams\Stream\StreamInterface;
 
 class Reduce implements TerminalOperationInterface
@@ -15,6 +16,10 @@ class Reduce implements TerminalOperationInterface
 
     public function __construct(StreamInterface $stream, $initial, callable $reduce)
     {
+        if (!$stream->isBounded()) {
+            throw new InvalidArgumentException("Cannot reduce unbounded stream");
+        }
+
         $this->stream = $stream;
         $this->initial = $initial;
         $this->reduce = $reduce;

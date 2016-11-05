@@ -31,4 +31,9 @@ class Limit implements StreamInterface
         $this->count++;
         $this->stream->next();
     }
+
+    public function isBounded()
+    {
+        return true;
+    }
 }

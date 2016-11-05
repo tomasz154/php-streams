@@ -4,7 +4,10 @@
 namespace T2\Streams\Tests\TerminalOperation;
 
 
+use T2\Streams\Exception\Exception;
+use T2\Streams\Exception\InvalidArgumentException;
 use T2\Streams\Stream\ArrayStream;
+use T2\Streams\Stream\Iterate;
 use T2\Streams\Stream\StreamInterface;
 use T2\Streams\TerminalOperation\Reduce;
 
@@ -37,8 +40,20 @@ class ReduceTest extends \PHPUnit_Framework_TestCase
         $stream->getCurrent()->will(function () use ($test) {
             $test->fail('getCurrent was called');
         });
+        $stream->isBounded()->willReturn(true);
         $op = new Reduce($stream->reveal(), 0, function () {
             return 1;
+        });
+    }
+
+    public function testUnbounded()
+    {
+        $stream = $this->prophesize(StreamInterface::class);
+        $stream->isBounded()->willReturn(false);
+
+        $this->expectException(InvalidArgumentException::class);
+        $reduce = new Reduce($stream->reveal(), 0, function ($carry, $item) {
+            return $carry + $item;
         });
     }
 }
