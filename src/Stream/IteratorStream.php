@@ -21,9 +21,9 @@ class IteratorStream implements StreamInterface
             $current = $this->iterator->current();
             $this->next();
             return $current;
-        } else {
-            throw new EndOfStream();
         }
+
+        throw new EndOfStream();
     }
 
     public function next()

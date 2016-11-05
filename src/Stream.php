@@ -41,14 +41,14 @@ class Stream
         return new static(new IteratorStream($iterator));
     }
 
-    public function limit($n)
+    public function limit($number)
     {
-        return new static(new Limit($this->stream, $n));
+        return new static(new Limit($this->stream, $number));
     }
 
-    public function skip($n)
+    public function skip($number)
     {
-        return new static(new Skip($this->stream, $n));
+        return new static(new Skip($this->stream, $number));
     }
 
     public function map(callable $map)

@@ -21,9 +21,9 @@ class Limit implements StreamInterface
         if ($this->count < $this->limit) {
             $this->count++;
             return $this->stream->getCurrent();
-        } else {
-            throw new EndOfStream();
         }
+
+        throw new EndOfStream();
     }
 
     public function next()

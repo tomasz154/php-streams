@@ -12,10 +12,10 @@ class Skip implements StreamInterface
     private $skip;
     private $current = 0;
 
-    public function __construct(StreamInterface $stream, $n)
+    public function __construct(StreamInterface $stream, $number)
     {
         $this->stream = $stream;
-        $this->skip = $n;
+        $this->skip = $number;
     }
 
     public function getCurrent()
