@@ -6,6 +6,7 @@ use T2\Streams\Operation\Filter;
 use T2\Streams\Operation\Limit;
 use T2\Streams\Operation\Map;
 use T2\Streams\Operation\Skip;
+use T2\Streams\Operation\Sorted;
 use T2\Streams\Stream\ArrayStream;
 use T2\Streams\Stream\Iterate;
 use T2\Streams\Stream\IteratorStream;
@@ -59,6 +60,11 @@ class Stream
     public function filter(callable $filter)
     {
         return new static(new Filter($this->stream, $filter));
+    }
+
+    public function sorted(callable $filter)
+    {
+        return new static(new Sorted($this->stream, $filter));
     }
 
     public function reduce($initial, callable $reduce)
