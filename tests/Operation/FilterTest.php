@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Operation;
+namespace T2\Streams\Tests\Operations;
 
 
 use T2\Streams\Exception\EndOfStream;

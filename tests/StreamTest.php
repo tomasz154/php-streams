@@ -1,8 +1,10 @@
 <?php
 
 
-namespace T2\Streams;
+namespace T2\Streams\Tests;
 
+
+use T2\Streams\Stream;
 
 class StreamTest extends \PHPUnit_Framework_TestCase
 {

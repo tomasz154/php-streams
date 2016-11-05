@@ -1,12 +1,13 @@
 <?php
 
 
-namespace T2\Streams\TerminalOperation;
+namespace T2\Streams\Tests\TerminalOperation;
 
 
 use T2\Streams\Exception\EndOfStream;
 use T2\Streams\Exception\NotFound;
 use T2\Streams\Stream\StreamInterface;
+use T2\Streams\TerminalOperation\FindFirst;
 
 class FindFirstTest extends \PHPUnit_Framework_TestCase
 {

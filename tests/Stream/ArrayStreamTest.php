@@ -1,10 +1,12 @@
 <?php
 
 
-namespace T2\Streams\Stream;
+namespace T2\Streams\Tests\Stream;
 
 
 use T2\Streams\Exception\EndOfStream;
+use T2\Streams\Stream\ArrayStream;
+use T2\Streams\Stream\StreamInterface;
 
 class ArrayStreamTest extends \PHPUnit_Framework_TestCase
 {
