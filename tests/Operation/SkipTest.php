@@ -13,10 +13,12 @@ class SkipTest extends \PHPUnit_Framework_TestCase
 {
     public function testNumbers()
     {
-        $stream = new ArrayStream([1, 4, 10]);
+        $stream = new ArrayStream([1, 4, 10, 20, 100]);
         $skip = new Skip($stream, 2);
 
         $this->assertEquals(10, $skip->getCurrent());
+        $skip->next();
+        $this->assertEquals(100, $skip->getCurrent());
 
         $this->expectException(EndOfStream::class);
         $skip->getCurrent();

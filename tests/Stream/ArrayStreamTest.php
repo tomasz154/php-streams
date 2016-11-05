@@ -21,4 +21,18 @@ class ArrayStreamTest extends \PHPUnit_Framework_TestCase
         $this->expectException(EndOfStream::class);
         $stream->getCurrent();
     }
+
+    public function testNext()
+    {
+        $array = [10, 20, 'zxc'];
+        $stream = new ArrayStream($array);
+
+        $this->assertInstanceOf(StreamInterface::class, $stream);
+        $this->assertEquals(10, $stream->getCurrent());
+        $stream->next();
+        $this->assertEquals('zxc', $stream->getCurrent());
+
+        $this->expectException(EndOfStream::class);
+        $stream->getCurrent();
+    }
 }

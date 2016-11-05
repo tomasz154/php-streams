@@ -12,13 +12,14 @@ class MapTest extends \PHPUnit_Framework_TestCase
 {
     public function testNumbers()
     {
-        $stream = new ArrayStream([1, 4]);
+        $stream = new ArrayStream([1, 4, 10]);
         $map = new Map($stream, function ($item) {
             return $item * 2;
         });
 
         $this->assertEquals(2, $map->getCurrent());
-        $this->assertEquals(8, $map->getCurrent());
+        $map->next();
+        $this->assertEquals(20, $map->getCurrent());
 
         $this->expectException(EndOfStream::class);
         $map->getCurrent();
@@ -26,13 +27,14 @@ class MapTest extends \PHPUnit_Framework_TestCase
 
     public function testStrings()
     {
-        $stream = new ArrayStream(['aa', 'bb']);
+        $stream = new ArrayStream(['aa', 'bb', 'xyz']);
         $map = new Map($stream, function ($item) {
             return '*' . $item . '*';
         });
 
         $this->assertEquals('*aa*', $map->getCurrent());
-        $this->assertEquals('*bb*', $map->getCurrent());
+        $map->next();
+        $this->assertEquals('*xyz*', $map->getCurrent());
 
         $this->expectException(EndOfStream::class);
         $map->getCurrent();
