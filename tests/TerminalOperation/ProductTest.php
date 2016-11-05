@@ -17,6 +17,13 @@ class ProductTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(6000, $op->getValue());
     }
 
+    public function testEmpty()
+    {
+        $stream = new ArrayStream([]);
+        $op = new Product($stream);
+        $this->assertEquals(null, $op->getValue());
+    }
+
     public function testItsLazy()
     {
         $test = $this;
