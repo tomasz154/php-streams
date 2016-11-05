@@ -17,6 +17,8 @@ class MapTest extends \PHPUnit_Framework_TestCase
             return $item * 2;
         });
 
+        $this->assertEquals($stream->isBounded(), $map->isBounded());
+
         $this->assertEquals(2, $map->getCurrent());
         $map->next();
         $this->assertEquals(20, $map->getCurrent());

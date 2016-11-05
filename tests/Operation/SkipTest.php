@@ -16,6 +16,8 @@ class SkipTest extends \PHPUnit_Framework_TestCase
         $stream = new ArrayStream([1, 4, 10, 20, 100]);
         $skip = new Skip($stream, 2);
 
+        $this->assertEquals($stream->isBounded(), $skip->isBounded());
+
         $this->assertEquals(10, $skip->getCurrent());
         $skip->next();
         $this->assertEquals(100, $skip->getCurrent());

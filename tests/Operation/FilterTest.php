@@ -17,6 +17,8 @@ class FilterTest extends \PHPUnit_Framework_TestCase
             return $item % 4 == 0;
         });
 
+        $this->assertEquals($stream->isBounded(), $filter->isBounded());
+
         $this->assertEquals(4, $filter->getCurrent());
         $filter->next();
         $this->assertEquals(8, $filter->getCurrent());

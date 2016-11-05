@@ -17,8 +17,25 @@ class SortedTest extends \PHPUnit_Framework_TestCase
         $stream = new ArrayStream([2, 3, 1]);
         $sorted = new Sorted($stream);
 
+        $this->assertEquals($stream->isBounded(), $sorted->isBounded());
+
         $this->assertEquals(1, $sorted->getCurrent());
         $this->assertEquals(2, $sorted->getCurrent());
+        $this->assertEquals(3, $sorted->getCurrent());
+
+        $this->expectException(EndOfStream::class);
+        $sorted->getCurrent();
+    }
+
+    public function testNext()
+    {
+        $stream = new ArrayStream([2, 3, 1]);
+        $sorted = new Sorted($stream);
+
+        $this->assertEquals($stream->isBounded(), $sorted->isBounded());
+
+        $this->assertEquals(1, $sorted->getCurrent());
+        $sorted->next();
         $this->assertEquals(3, $sorted->getCurrent());
 
         $this->expectException(EndOfStream::class);
