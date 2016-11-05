@@ -22,7 +22,7 @@ class ToArrayTest extends \PHPUnit_Framework_TestCase
         $test = $this;
         $stream = $this->prophesize(StreamInterface::class);
         $stream->getCurrent()->will(function () use ($test) {
-            $test->fail();
+            $test->fail('getCurrent was called');
         });
         $op = new ToArray($stream->reveal());
     }
