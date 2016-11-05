@@ -17,6 +17,13 @@ class SumTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(60, $op->getValue());
     }
 
+    public function testEmpty()
+    {
+        $stream = new ArrayStream([]);
+        $op = new Product($stream);
+        $this->assertEquals(0, $op->getValue());
+    }
+
     public function testItsLazy()
     {
         $test = $this;
