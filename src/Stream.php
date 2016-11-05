@@ -15,6 +15,7 @@ use T2\Streams\TerminalOperation\FindFirst;
 use T2\Streams\TerminalOperation\Reduce;
 use T2\Streams\TerminalOperation\Sum;
 use T2\Streams\TerminalOperation\ToArray;
+use T2\Streams\TerminalOperation\ToGenerator;
 
 class Stream
 {
@@ -68,6 +69,11 @@ class Stream
     public function toArray()
     {
         return (new ToArray($this->stream))->getValue();
+    }
+
+    public function toGenerator()
+    {
+        return (new ToGenerator($this->stream))->getValue();
     }
 
     public function findFirst()

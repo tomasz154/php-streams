@@ -35,6 +35,8 @@ class StreamTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals([1, 2, 3], Stream::fromArray([1, 2, 3])->toArray());
 
+        $this->assertEquals([1, 2, 3], iterator_to_array(Stream::fromArray([1, 2, 3])->toGenerator()));
+
         $this->assertEquals(1, Stream::fromArray([1, 2, 3])->findFirst());
 
         $this->assertEquals(6, Stream::fromArray([1, 2, 3])->sum());
