@@ -9,6 +9,6 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - php composer.phar install
+          - composer install
           - ./vendor/bin/phpunit
           
