@@ -14,6 +14,8 @@ class IterateTest extends \PHPUnit_Framework_TestCase
             return $current + 2;
         });
 
+        $this->assertFalse($stream->isBounded());
+
         $this->assertEquals(10, $stream->getCurrent());
         $stream->next();
         $this->assertEquals(14, $stream->getCurrent());
@@ -24,6 +26,8 @@ class IterateTest extends \PHPUnit_Framework_TestCase
         $stream = new Iterate('A', function ($current) {
             return $current . '*';
         });
+
+        $this->assertFalse($stream->isBounded());
 
         $this->assertEquals('A', $stream->getCurrent());
         $this->assertEquals('A*', $stream->getCurrent());
