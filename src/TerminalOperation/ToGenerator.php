@@ -22,7 +22,7 @@ class ToGenerator implements TerminalOperationInterface
             try {
                 yield $this->stream->getCurrent();
             } catch (EndOfStream $e) {
-                return;
+                break;
             }
         }
     }
