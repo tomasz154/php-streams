@@ -7,6 +7,8 @@ php:
   - nightly
 install:
   - composer install
-script: vendor/bin/phpunit
+script:
+  - vendor/bin/phpcs src tests --standard=PSR2 --report=summary -np
+  - vendor/bin/phpunit
 after_script:
   - vendor/bin/test-reporter
