@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Tests\Stream;
 
-
 use T2\Streams\Exception\EndOfStream;
 use T2\Streams\Stream\IteratorStream;
 use T2\Streams\Stream\StreamInterface;

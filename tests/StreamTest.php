@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Tests;
 
-
 use T2\Streams\Operation\Filter;
 use T2\Streams\Operation\Limit;
 use T2\Streams\Operation\Map;

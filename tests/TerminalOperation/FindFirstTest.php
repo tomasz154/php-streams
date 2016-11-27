@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Tests\TerminalOperation;
 
-
 use T2\Streams\Exception\EndOfStream;
 use T2\Streams\Exception\NotFound;
 use T2\Streams\Stream\StreamInterface;

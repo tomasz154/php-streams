@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Tests\Operations;
 
-
 use T2\Streams\Exception\EndOfStream;
 use T2\Streams\Exception\InvalidArgumentException;
 use T2\Streams\Operation\Sorted;

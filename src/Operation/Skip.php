@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Operation;
 
-
 use T2\Streams\Stream\StreamInterface;
 
 class Skip implements StreamInterface

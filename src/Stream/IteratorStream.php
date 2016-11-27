@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Stream;
 
-
 use T2\Streams\Exception\EndOfStream;
 
 class IteratorStream implements StreamInterface

@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Tests\TerminalOperation;
 
-
 use T2\Streams\Exception\InvalidArgumentException;
 use T2\Streams\Stream\ArrayStream;
 use T2\Streams\Stream\StreamInterface;

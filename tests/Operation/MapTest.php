@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Tests\Operations;
 
-
 use T2\Streams\Exception\EndOfStream;
 use T2\Streams\Operation\Map;
 use T2\Streams\Stream\ArrayStream;

@@ -3,7 +3,6 @@
 
 namespace T2\Streams\Tests\Stream;
 
-
 use T2\Streams\Stream\Iterate;
 
 class IterateTest extends \PHPUnit_Framework_TestCase
