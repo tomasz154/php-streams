@@ -38,3 +38,5 @@ jobs:
         
       - run: vendor/bin/phpunit
       - run: vendor/bin/phpcs src tests --standard=PSR2 -p
+  build:
+  
