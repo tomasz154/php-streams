@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  test:
     docker:
       # specify the version you desire here
       - image: composer
@@ -17,6 +17,9 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - php -v
+      - php -m
+
       - checkout
 
       # Download and cache dependencies
@@ -33,5 +36,5 @@ jobs:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
         
-      # run tests!
       - run: vendor/bin/phpunit
+      - run: vendor/bin/phpcs src tests --standard=PSR2 -p
