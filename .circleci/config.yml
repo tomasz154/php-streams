@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  test:
+  build:
     docker:
       # specify the version you desire here
       - image: composer
@@ -38,5 +38,3 @@ jobs:
         
       - run: vendor/bin/phpunit
       - run: vendor/bin/phpcs src tests --standard=PSR2 -p
-  build:
-  
