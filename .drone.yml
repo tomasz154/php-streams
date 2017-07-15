@@ -1,5 +1,11 @@
 pipeline:
-  build:
+  phpcs:
+    image: composer
+    commands:
+      - php -v
+      - composer install
+      - vendor/bin/phpcs src tests --standard=PSR2 -p
+  phpunit:
     image: composer
     commands:
       - php -v
