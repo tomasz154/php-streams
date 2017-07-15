@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: php
+    image: composer
     commands:
       - php -v
       - composer install
