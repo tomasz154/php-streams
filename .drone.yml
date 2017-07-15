@@ -3,4 +3,6 @@ pipeline:
     image: php
     commands:
       - php -v
+      - composer install
+      - vendor/bin/phpunit
       
